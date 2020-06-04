@@ -1,0 +1,47 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner sc=new Scanner(System.in);
+		int tc=sc.nextInt();
+		while (tc>0)
+		{
+		 int n=sc.nextInt();
+		int k=sc.nextInt();
+		int[] ar= new int[n];
+		int i;
+		    
+		for(i=0;i<n;i++)
+		{
+		    ar[i]=sc.nextInt();
+		}
+		int output;
+		output=binsearch(ar,0,n,k);
+		if (output==1)
+        	System.out.println(1);
+        		else 
+        	System.out.println(-1);
+        	tc--;
+		}
+
+	
+		}
+		public static int binsearch(int[] ar,int lb,int ub,int k)
+		{
+		    while(lb<=ub)
+		    {
+		        int m=lb+ub/2;
+		        if(ar[m]==k)
+		        return m;
+		        if(ar[m]<k)
+		        return binsearch(ar, lb, m-1,k);
+		        else 
+		        return binsearch(ar, ub, m+1,k);
+		    }
+		    return -1;
+		}
+		
+	}
