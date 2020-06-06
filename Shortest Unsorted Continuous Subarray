@@ -1,0 +1,20 @@
+class Solution {
+    public int findUnsortedSubarray(int[] nums) {
+        int l = nums.length, rig = 0;
+        for (int i = 0; i < nums.length - 1; i++) 
+        {
+            for (int j = i + 1; j < nums.length; j++) 
+            {
+                if (nums[j] < nums[i])
+                {
+                    rig = Math.max(rig, j);
+                    l = Math.min(l, i);
+                }
+            }
+        }
+        if(rig - l < 0) 
+            return 0; 
+        else
+            return rig - l + 1;
+    }
+}
